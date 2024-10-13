@@ -14,11 +14,9 @@ class MessageParser {
       body: JSON.stringify({ input: message})
     });
 
-    console.log("Response status:", response.status);  // Log the response status
     // Parse the JSON response from the Flask server
     const data = await response.json();
     console.log("Server response:", data);  // Log the data from the server
-
 
     // Check if the server returned an error
     if (data.error) {
@@ -28,6 +26,26 @@ class MessageParser {
 
     // Pass the GPT response to the ActionProvider to update the chatbot state
     this.actionProvider.handleCustomMessage(data.response, "bot");
+
+    // Play the audio using the unique filename
+    const audio = new Audio("http://127.0.0.1:5000" + data.audio_url);
+    audio.play();
+
+    // When the audio ends, send a request to delete the audio file
+    audio.onended = async () => {
+      console.log("Audio finished playing. Deleting audio file...");
+
+      // Send the unique filename to delete the file
+      await fetch("http://127.0.0.1:5000/delete_mp3", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ filename: data.audio_url.split('/').pop() })
+      });
+
+      console.log("Audio file deleted successfully.");
+    };
 
     } catch (error) {
     // Handle any network or server errors
