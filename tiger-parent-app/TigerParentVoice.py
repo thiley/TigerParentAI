@@ -43,5 +43,5 @@ def text_to_speech_file(text: str) -> str:
     return save_file_path
 
 if __name__ == "__main__":
-    text = "Make me proud? Hah! You tink dat easy? You tink doin' one or two tings goin' impress me? Look at cousin Mei, she already doctor an' only 25! What you do? Nothin'. Always askin' for approval like child. You no need approval, you need success! You need to win awards, get straight A’s, be best at everytin'. Even den, maybe not enough.But honestly, you prob'ly never be like Mei or Timmy anyway. So why you bo'der try?"
+    text = "Go ou'? Why you always wan' go ou'? You no have be'er tings to do? Always wastin' time! Your cousin Timmy never go ou'. He always studyin', always winnin' awards. You wan' be lazy? Fine, go ahead! But you no do anytin' productive anyway. You prob'ly just sit around, talk nonsense, waste more time. But also, why you even have friends? You no need friends! Focus on studyin'!"
     text_to_speech_file(text)

@@ -5,21 +5,27 @@ class ActionProvider {
   }
 
   greet() {
-    const greetingMessage = this.createChatBotMessage("Hi, friend.")
-    this.updateChatbotState(greetingMessage)
+    const greetingMessage = this.createChatBotMessage("Hi, friend.");
+    this.updateChatbotState(greetingMessage);
   }
 
   updateChatbotState(message) {
+    this.setState(prevState => ({
+      ...prevState,
+      messages: [...prevState.messages, message],
+    }));
+  }
 
-// NOTE: This function is set in the constructor, and is passed in
-// from the top level Chatbot component. The setState function here     
-// actually manipulates the top level state of the Chatbot, so it's     
-// important that we make sure that we preserve the previous state.
-
-
-   this.setState(prevState => ({
-        ...prevState, messages: [...prevState.messages, message]
-    }))
+  // Override the default message rendering to use custom components
+  handleCustomMessage(message, sender) {
+    return (
+      <div className={`chatbot-message ${sender}-message`}>
+        <div className={`${sender}-profile`}>
+          {sender === "bot" ? "B" : "U"}
+        </div>
+        <div>{message}</div>
+      </div>
+    );
   }
 }
 
