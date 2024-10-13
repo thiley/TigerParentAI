@@ -16,14 +16,16 @@ def response_text():
     gpt_response = get_response(user_input)
     #file path of the mp3
     audio_file = text_to_speech_file(gpt_response)
-    return jsonify({'response' : gpt_response, 'audio_url' : f'/response_speech/{audio_file}'})
 
-@app.route('/response_speech/<filename>', methods = ['POST'])
-def response_speech(filename):
-    return send_file(f"audio/{filename}", mimetype='audio/mpeg')
+    return jsonify({'response' : gpt_response, 'audio_url' : f'/get_audio/{audio_file}'})
 
-@app.route('/delete_mp3', methods = ['POST'])
-def delete_mp3():
+@app.route('/get_audio/<filename>', methods = ['GET'])
+def get_audio(filename):
+    return send_file(filename, mimetype='audio/mpeg')
+
+
+@app.route('/delete_audio', methods = ['GET'])
+def delete_audio():
     data = request.json
     filename = data.get('filename')  # Get the filename from the request
     if filename:

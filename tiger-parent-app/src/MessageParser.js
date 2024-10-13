@@ -28,6 +28,7 @@ class MessageParser {
     this.actionProvider.handleCustomMessage(data.response, "bot");
 
     // Play the audio using the unique filename
+    console.log("audiourl:", data.audio_url);
     const audio = new Audio("http://127.0.0.1:5000" + data.audio_url);
     audio.play();
 
@@ -36,7 +37,7 @@ class MessageParser {
       console.log("Audio finished playing. Deleting audio file...");
 
       // Send the unique filename to delete the file
-      await fetch("http://127.0.0.1:5000/delete_mp3", {
+      await fetch("http://127.0.0.1:5000/delete_audio", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
