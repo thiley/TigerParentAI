@@ -1,6 +1,7 @@
 
 import os
 import uuid
+from openAPIConnection import get_response
 from elevenlabs import VoiceSettings
 from elevenlabs.client import ElevenLabs
 
@@ -43,5 +44,10 @@ def text_to_speech_file(text: str) -> str:
     return save_file_path
 
 if __name__ == "__main__":
+<<<<<<< Updated upstream
     text = "Make me proud? Hah! You tink dat easy? You tink doin' one or two tings goin' impress me? Look at cousin Mei, she already doctor an' only 25! What you do? Nothin'. Always askin' for approval like child. You no need approval, you need success! You need to win awards, get straight A’s, be best at everytin'. Even den, maybe not enough.But honestly, you prob'ly never be like Mei or Timmy anyway. So why you bo'der try?"
+=======
+    text = get_response(input("Tell your parent something: "))
+>>>>>>> Stashed changes
     text_to_speech_file(text)
+    print(text)
