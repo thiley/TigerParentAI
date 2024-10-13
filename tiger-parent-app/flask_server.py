@@ -24,13 +24,13 @@ def get_audio(filename):
     return send_file(filename, mimetype='audio/mpeg')
 
 
-@app.route('/delete_audio', methods = ['GET'])
+@app.route('/delete_audio', methods = ['POST'])
 def delete_audio():
     data = request.json
     filename = data.get('filename')  # Get the filename from the request
     if filename:
         try:
-            os.remove(f"audio/{filename}")
+            os.remove(f"{filename}")
             return jsonify({'message': 'Audio file deleted successfully'})
         except FileNotFoundError:
             return jsonify({'error': 'File not found'}), 404
