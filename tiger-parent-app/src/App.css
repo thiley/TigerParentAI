@@ -14,7 +14,11 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-image: url("https://tabletwentyone.blog/wp-content/uploads/2010/09/img_0566wm.jpg?w=676");
+  background-repeat: no-repeat;   
+  background-size: cover;         
+  background-position: center; 
+  opacity: 0.75;   
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,6 +27,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
 
 .App-link {
   color: #61dafb;
