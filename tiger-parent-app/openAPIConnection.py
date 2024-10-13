@@ -9,6 +9,8 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 
 client = OpenAI(api_key = openai_api_key)
 
+response_text = ""
+
 def get_response(user_input):
     try:
         messages = [
@@ -51,8 +53,9 @@ def get_response(user_input):
             temperature=0.8
         )
 
+        response_text = response.choices[0].message.content
+
         return response.choices[0].message.content
     
     except Exception as e:
         return f"Error occured: {e}"
-    
