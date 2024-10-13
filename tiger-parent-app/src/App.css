@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-image: url("https://tabletwentyone.blog/wp-content/uploads/2010/09/img_0566wm.jpg?w=676");
   background-repeat: no-repeat;   
@@ -28,16 +17,78 @@
   color: white;
 }
 
-
-.App-link {
-  color: #61dafb;
+/* Styling the chatbot messages */
+.chatbot-message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Bot message */
+.bot-message {
+  display: flex;
+  align-items: center;
+  background-color: #000000;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 60%;
+  margin-left: 0;
+}
+
+.bot-profile {
+  background-color: #00aaff;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* User message */
+.user-message {
+  display: flex;
+  align-items: center;
+  background-color: #e0e0e0;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 60%;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.user-profile {
+  background-color: #ffaa00;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Ensures message bubbles are responsive */
+.chatbot-container {
+  max-width: 600px;
+  width: 100%;
+  overflow-y: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }

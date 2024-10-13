@@ -5,10 +5,10 @@ const config = {
   initialMessages: [createChatBotMessage("What you want la? Why you no studying?")],
   customStyles: {
     botMessageBox: {
-      backgroundColor: "#376B7E",
+      backgroundColor: "#000000",
     },
     chatButton: {
-      backgroundColor: "#376B7E",
+      backgroundColor: "#000000",
     },
   },
 }
