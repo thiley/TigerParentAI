@@ -56,5 +56,3 @@ def get_response(user_input):
     except Exception as e:
         return f"Error occured: {e}"
     
-response = get_response(input("Tell your parent something: "))
-print(response)

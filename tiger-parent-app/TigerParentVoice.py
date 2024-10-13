@@ -1,6 +1,7 @@
 
 import os
 import uuid
+from openAPIConnection import get_response
 from elevenlabs import VoiceSettings
 from elevenlabs.client import ElevenLabs
 
@@ -43,5 +44,6 @@ def text_to_speech_file(text: str) -> str:
     return save_file_path
 
 if __name__ == "__main__":
-    text = "Go ou'? Why you always wan' go ou'? You no have be'er tings to do? Always wastin' time! Your cousin Timmy never go ou'. He always studyin', always winnin' awards. You wan' be lazy? Fine, go ahead! But you no do anytin' productive anyway. You prob'ly just sit around, talk nonsense, waste more time. But also, why you even have friends? You no need friends! Focus on studyin'!"
+    text = get_response(input("Tell your parent something: "))
     text_to_speech_file(text)
+    print(text)
