@@ -18,9 +18,9 @@ def text_to_speech_file(text: str) -> str:
         text=text,
         model_id="eleven_turbo_v2_5", # use the turbo model for low latency
         voice_settings=VoiceSettings(
-            stability=37,
-            similarity_boost=78,
-            style=47,
+            stability=0.7,
+            similarity_boost=0.78,
+            style=0.47,
             use_speaker_boost=True,
         ),
     )
@@ -42,4 +42,6 @@ def text_to_speech_file(text: str) -> str:
     # Return the path of the saved audio file
     return save_file_path
 
-text_to_speech_file("Hello World")
+if __name__ == "__main__":
+    text = "Make me proud? Hah! You tink dat easy? You tink doin' one or two tings goin' impress me? Look at cousin Mei, she already doctor an' only 25! What you do? Nothin'. Always askin' for approval like child. You no need approval, you need success! You need to win awards, get straight A’s, be best at everytin'. Even den, maybe not enough.But honestly, you prob'ly never be like Mei or Timmy anyway. So why you bo'der try?"
+    text_to_speech_file(text)
