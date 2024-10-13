@@ -14,8 +14,11 @@ class MessageParser {
       body: JSON.stringify({ input: message})
     });
 
+    console.log("Response status:", response.status);  // Log the response status
     // Parse the JSON response from the Flask server
     const data = await response.json();
+    console.log("Server response:", data);  // Log the data from the server
+
 
     // Check if the server returned an error
     if (data.error) {
@@ -28,6 +31,7 @@ class MessageParser {
 
     } catch (error) {
     // Handle any network or server errors
+    console.error("Error fetching response:", error);  // Log any fetch errors
     this.actionProvider.handleCustomMessage("Error: Failed to fetch response.", "bot");
     }
   }

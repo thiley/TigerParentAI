@@ -10,9 +10,9 @@ CORS(app)
 def response_text():
     #extract input from JSON request
     user_input = request.json.get('input')
-
+    print(f"Received input: {user_input}")
     gpt_response = get_response(user_input)
-
+    print(f"Generated GPT response: {gpt_response}")
     return jsonify({'response' : gpt_response})
 
 if __name__ == '__main__':
