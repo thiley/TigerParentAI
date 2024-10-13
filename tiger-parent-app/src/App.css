@@ -18,6 +18,11 @@
 }
 
 /* Styling the chatbot messages */
+/* Hide the default bot name header */
+.rcb-chat-header {
+  display: none;
+}
+
 .chatbot-message {
   display: flex;
   align-items: center;
